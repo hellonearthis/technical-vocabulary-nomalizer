@@ -88,3 +88,49 @@ Both scripts support the following advanced CLI arguments:
 python .agents/skills/technical-vocabulary-normalizer/scripts/audit_terms.py --path docs/ --exclude "docs/archive/*" --skip-code-blocks --retired-terms my-custom-retired-terms.txt
 ```
 
+# Enid Pinxit original flowchart (Updated)
+
+```mermaid
+flowchart TD
+    User["User request: audit or normalize unclear terminology"] --> Trigger["Skill trigger: technical vocabulary normalization"]
+
+    Trigger --> Core["SKILL.md: core operating workflow"]
+
+    Core --> PreAudit["Pre-Audit: Read References (Taxonomy, Rules, Retired Terms)"]
+    PreAudit --> Modes["Operating modes"]
+    Modes --> Audit["Audit only"]
+    Modes --> Edit["Edit mode"]
+    Modes --> Validate["Validation mode"]
+
+    Core --> Context["Read target context"]
+    Context --> Detect["Identify fuzzy, private, overloaded, or undefined terms"]
+    Detect --> Taxonomy["Classify issue type using fuzzy-term taxonomy"]
+    Taxonomy --> Meaning["Infer concrete system meaning"]
+    Meaning --> Normalize["Propose precise technical wording"]
+    Normalize --> LocalCheck["Check project-local vocabulary and meaning"]
+    LocalCheck --> Evidence["Produce evidence-backed output"]
+
+    Evidence --> AuditTable["Audit table: location, term, category, context snippet, replacement, confidence"]
+    Evidence --> Ledger["Optional term ledger entry"]
+
+    Core --> Resources["Bundled resources"]
+    Resources --> TaxonomyRef["references/fuzzy-term-taxonomy.md"]
+    Resources --> RulesRef["references/replacement-rules.md"]
+    Resources --> LedgerRef["references/output-ledger-schema.md"]
+    Resources --> RetiredList["references/retired-terms-default.txt"]
+    Resources --> AuditScript["scripts/audit_terms.py"]
+    Resources --> ValidateScript["scripts/validate_terms.py"]
+
+    RetiredList --> CandidateRule["Retired terms are starter candidates, not global bans"]
+    CandidateRule --> LocalCheck
+
+    AuditScript --> FirstPass["First-pass candidate scan"]
+    ValidateScript --> RetiredScan["Retired-term validation scan"]
+
+    Edit --> Apply["Apply consistent replacements when requested"]
+    Apply --> Preserve["Preserve quoted source evidence"]
+    Preserve --> Revalidate["Re-scan for ambiguity or retired terms"]
+
+    Validate --> Revalidate
+    Revalidate --> Result["Public, precise, reusable terminology"]
+```

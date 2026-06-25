@@ -34,7 +34,8 @@ flowchart TD
     User["User request: audit or normalize unclear terminology"] --> Trigger["Skill trigger: technical vocabulary normalization"]
     Trigger --> Core["SKILL.md: core operating workflow"]
     
-    Core --> Modes["Operating modes"]
+    Core --> PreAudit["Pre-Audit: Read References (Taxonomy, Rules, Retired Terms)"]
+    PreAudit --> Modes["Operating modes"]
     Modes --> Audit["Audit only"]
     Modes --> Edit["Edit mode"]
     Modes --> Validate["Validation mode"]
@@ -47,7 +48,7 @@ flowchart TD
     Normalize --> LocalCheck["Check project-local vocabulary and meaning"]
     LocalCheck --> Evidence["Produce evidence-backed output"]
     
-    Evidence --> AuditTable["Audit table: location, term, category, meaning, replacement, confidence"]
+    Evidence --> AuditTable["Audit table: location, term, category, context snippet, replacement, confidence"]
     Evidence --> Ledger["Optional term ledger entry"]
     
     Core --> Resources["Bundled resources"]
