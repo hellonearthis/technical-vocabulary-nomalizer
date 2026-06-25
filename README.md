@@ -7,6 +7,10 @@ This repository contains custom agent skills designed to improve the quality, pr
 > 
 > Credits go to **Enid Pinxit** ([concept origin](https://x.com/EnidPinxit/status/2069528207951622165)).
 
+## About
+
+Rather than telling ChatGPT to stop with the fuzzy poetic terminology in our architecture ideations and making it 'a thing', this repository provides a skill for taking fuzzy vocabulary from LLM chat ideations turned into architecture and making terms and loose values technical and meaningful based on the context of the chat/architecture.
+
 ## Included Skills
 
 ### 1. Technical Vocabulary Normalizer
