@@ -27,6 +27,9 @@ The skill operates in three distinct modes:
 2. **Edit Mode**: The agent replaces fuzzy terms with technical equivalents, requiring your explicit approval (Human-in-the-Loop) before modifying documents.
 3. **Validate Mode**: The agent (or script) acts as an automated check to ensure no "retired" or hype words make it into final architectural documentation.
 
+**Agent Chat vs Document Editing:**
+By default, this skill only affects the documents the agent creates, edits, or audits when explicitly asked. It does *not* automatically filter the agent's casual conversation in the chat interface. However, because the skill is installed in the workspace, you can instruct the agent to apply these rules to all conversational responses, or enforce this globally by adding a rule to your workspace `AGENTS.md`.
+
 **Included Python CLI Tools:**
 The skill bundles standalone Python scripts that you can use locally or in your CI/CD pipelines:
 - `scripts/audit_terms.py`: Scans files/folders and outputs a markdown table of fuzzy term occurrences.
