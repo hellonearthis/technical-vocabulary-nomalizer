@@ -88,7 +88,7 @@ Both scripts support the following advanced CLI arguments:
 python .agents/skills/technical-vocabulary-normalizer/scripts/audit_terms.py --path docs/ --exclude "docs/archive/*" --skip-code-blocks --retired-terms my-custom-retired-terms.txt
 ```
 
-# Enid Pinxit original flowchart (Updated)
+# Enid Pinxit flowchart (Updated)
 
 ```mermaid
 flowchart TD
